@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    HappyBirthdayCard(name = "Boss", sender = "HR Dept.")
+                    ComposeArticle()
                 }
             }
         }
@@ -82,7 +82,33 @@ fun HappyBirthdayCard(
 }
 
 //Exercise 1: Compose Article
-
+@Composable
+fun ComposeArticle(modifier: Modifier = Modifier){
+    Column() {
+        Image(
+            painter = painterResource(R.drawable.bg_compose_background),
+            contentDescription = null,
+            contentScale = ContentScale.FillWidth
+        )
+        Text(
+            text = stringResource(R.string.article_title),
+            fontSize = 24.sp,
+            modifier = modifier
+                .padding(16.dp)
+        )
+        Text(
+            text = stringResource(R.string.article_p1),
+            modifier = modifier
+                .padding(start = 16.dp, end = 16.dp)
+        )
+        Text(
+            text = stringResource(R.string.article_p2),
+            textAlign = TextAlign.Justify,
+            modifier = modifier
+                .padding(16.dp)
+        )
+    }
+}
 
 @Preview(
     showBackground = true,
