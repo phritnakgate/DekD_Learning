@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DekD_Learning</string>
+    <string name="happy_birthday_receiver">Happy Birthday %1$s !</string>
+    <string name="happy_birthday_sender">From… %1$s</string>
 </resources>

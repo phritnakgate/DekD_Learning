@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -63,14 +64,14 @@ fun HappyBirthdayCard(
         ) {
 
             Text(
-                text = "Happy Birthday $name !",
+                text = stringResource(R.string.happy_birthday_receiver, name),
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
                 lineHeight = 32.sp,
                 textAlign = TextAlign.Center
             )
             Text(
-                text = "From...$sender",
+                text = stringResource(R.string.happy_birthday_sender, sender),
                 fontSize = 18.sp,
                 modifier = Modifier
                     .padding(16.dp)
@@ -79,6 +80,9 @@ fun HappyBirthdayCard(
         }
     }
 }
+
+//Exercise 1: Compose Article
+
 
 @Preview(
     showBackground = true,
