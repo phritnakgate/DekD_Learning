@@ -5,9 +5,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -17,11 +20,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.dekd_learning.ui.theme.DekD_LearningTheme
@@ -36,7 +39,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    TaskManager()
+                    ComposeQuadrant()
                 }
             }
         }
@@ -132,13 +135,97 @@ fun TaskManager(modifier: Modifier = Modifier){
         )
     }
 }
-@Preview(
-    showBackground = true,
-    showSystemUi = true
-)
+
+//Exercise 3: Compose Quadrant
 @Composable
-fun GreetingPreview() {
-    DekD_LearningTheme {
-        HappyBirthdayCard(name = "Boss", sender = "HR Dept.")
+fun ComposeQuadrant(modifier: Modifier = Modifier){
+    Column() {
+        Row(
+            modifier = Modifier
+                .weight(0.5F)
+        ) {
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .background(color = colorResource(R.color.quadrant1_bg))
+                    .weight(0.5F)
+                    .fillMaxHeight()
+                    .padding(16.dp)
+            ) {
+                Text(
+                    text = stringResource(R.string.quadrant_1_heading),
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(bottom = 16.dp)
+                )
+                Text(
+                    text = stringResource(R.string.quadrant_1_desc),
+                    textAlign = TextAlign.Justify
+                )
+            }
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .background(color = colorResource(R.color.quadrant2_bg))
+                    .weight(0.5F)
+                    .fillMaxHeight()
+                    .padding(16.dp)
+            ) {
+                Text(
+                    text = stringResource(R.string.quadrant_2_heading),
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(bottom = 16.dp)
+                )
+                Text(
+                    text = stringResource(R.string.quadrant_2_desc),
+                    textAlign = TextAlign.Justify
+                )
+            }
+        }
+        Row(
+            modifier = Modifier
+                .weight(0.5F)
+        ) {
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .background(color = colorResource(R.color.quadrant3_bg))
+                    .weight(0.5F)
+                    .fillMaxHeight()
+                    .padding(16.dp)
+            ) {
+                Text(
+                    text = stringResource(R.string.quadrant_3_heading),
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(bottom = 16.dp)
+                )
+                Text(
+                    text = stringResource(R.string.quadrant_3_desc),
+                    textAlign = TextAlign.Justify
+                )
+            }
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .background(color = colorResource(R.color.quadrant4_bg))
+                    .weight(0.5F)
+                    .fillMaxHeight()
+                    .padding(16.dp)
+            ) {
+                Text(
+                    text = stringResource(R.string.quadrant_4_heading),
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(bottom = 16.dp)
+                )
+                Text(
+                    text = stringResource(R.string.quadrant_4_desc),
+                    textAlign = TextAlign.Justify
+                )
+            }
+        }
     }
 }
+

@@ -13,4 +13,14 @@
     <string name="task_manager_text1">All tasks completed</string>
     <string name="task_manager_text2">Nice work!</string>
 
+    <!--Exercise 3: Compose Quadrant-->
+    <string name="quadrant_1_heading">Text composable</string>
+    <string name="quadrant_1_desc">Displays text and follows the recommended Material Design guidelines.</string>
+    <string name="quadrant_2_heading">Image composable</string>
+    <string name="quadrant_2_desc">Creates a composable that lays out and draws a given Painter class object.</string>
+    <string name="quadrant_3_heading">Row composable</string>
+    <string name="quadrant_3_desc">A layout composable that places its children in a horizontal sequence.</string>
+    <string name="quadrant_4_heading">Column composable</string>
+    <string name="quadrant_4_desc">A layout composable that places its children in a vertical sequence.</string>
+
 </resources>
