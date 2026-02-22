@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ComposeArticle()
+                    TaskManager()
                 }
             }
         }
@@ -110,6 +110,28 @@ fun ComposeArticle(modifier: Modifier = Modifier){
     }
 }
 
+//Exercise 2: Task Manager
+@Composable
+fun TaskManager(modifier: Modifier = Modifier){
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Image(
+            painter = painterResource(R.drawable.ic_task_completed),
+            contentDescription = null
+        )
+        Text(
+            text = stringResource(R.string.task_manager_text1),
+            fontWeight = FontWeight.Bold,
+            modifier = modifier.padding(top = 24.dp, bottom = 8.dp)
+        )
+        Text(
+            text = stringResource(R.string.task_manager_text2),
+            fontSize = 16.sp
+        )
+    }
+}
 @Preview(
     showBackground = true,
     showSystemUi = true
