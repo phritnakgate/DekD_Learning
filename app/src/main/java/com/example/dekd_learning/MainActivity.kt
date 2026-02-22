@@ -10,15 +10,23 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Call
+import androidx.compose.material.icons.rounded.Email
+import androidx.compose.material.icons.rounded.Share
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -37,9 +45,9 @@ class MainActivity : ComponentActivity() {
             DekD_LearningTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = colorResource(R.color.business_card_bg)
                 ) {
-                    ComposeQuadrant()
+                    BusinessCard()
                 }
             }
         }
@@ -229,3 +237,71 @@ fun ComposeQuadrant(modifier: Modifier = Modifier){
     }
 }
 
+//Business Card
+@Composable
+fun BusinessCard(){
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(bottom = 64.dp)
+    ) {
+        Spacer(
+            modifier = Modifier
+                .weight(1f)
+        )
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Box(
+                modifier = Modifier.background(colorResource(R.color.business_android_bg))
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.android_logo),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .height(100.dp)
+                        .width(100.dp)
+                )
+            }
+            Text(
+                text = stringResource(R.string.business_name),
+                fontSize = 32.sp,
+                fontWeight = FontWeight.Light
+            )
+            Text(
+                text = stringResource(R.string.business_position),
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Bold,
+                color = colorResource(R.color.business_dark_green)
+            )
+        }
+        Spacer(
+            modifier = Modifier
+                .weight(1f)
+        )
+        Column(
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            ContactCard(stringResource(R.string.business_tel), Icons.Rounded.Call)
+            ContactCard(stringResource(R.string.business_contact), Icons.Rounded.Share)
+            ContactCard(stringResource(R.string.business_email), Icons.Rounded.Email)
+        }
+    }
+}
+@Composable
+fun ContactCard(text: String, icon: ImageVector){
+    Row(){
+        Icon(
+            icon,
+            contentDescription = null,
+            tint = colorResource(R.color.business_dark_green),
+            modifier = Modifier
+                .padding(end = 24.dp)
+        )
+        Text(
+            text = text,
+            fontSize = 14.sp,
+        )
+    }
+}

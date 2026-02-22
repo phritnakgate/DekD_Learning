@@ -13,4 +13,9 @@
     <color name="quadrant2_bg">#FFD0BCFF</color>
     <color name="quadrant3_bg">#FFB69DF8</color>
     <color name="quadrant4_bg">#FFF6EDFF</color>
+
+    <!--Exercise 4: Business Card-->
+    <color name="business_card_bg">#FFD2E8D4</color>
+    <color name="business_android_bg">#FF073042</color>
+    <color name="business_dark_green">#FF006A34</color>
 </resources>

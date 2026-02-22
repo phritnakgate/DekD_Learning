@@ -23,4 +23,11 @@
     <string name="quadrant_4_heading">Column composable</string>
     <string name="quadrant_4_desc">A layout composable that places its children in a vertical sequence.</string>
 
+    <!--Project: Business Card-->
+    <string name="business_name">Phrit Nakgate</string>
+    <string name="business_position">Android Developer</string>
+    <string name="business_tel">087-0871983</string>
+    <string name="business_contact">phritkungz</string>
+    <string name="business_email">phritn.work@gmail.com</string>
+
 </resources>
