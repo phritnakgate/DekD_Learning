@@ -30,4 +30,7 @@
     <string name="business_contact">phritkungz</string>
     <string name="business_email">phritn.work@gmail.com</string>
 
+    <!--Unit2: Dice-->
+    <string name="dice_roll_btn">Roll</string>
+
 </resources>
