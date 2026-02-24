@@ -18,4 +18,7 @@
     <color name="business_card_bg">#FFD2E8D4</color>
     <color name="business_android_bg">#FF073042</color>
     <color name="business_dark_green">#FF006A34</color>
+
+    <!-- Unit2: Lemonade -->
+    <color name="lemonade_header">#FFF9E44C</color>
 </resources>
