@@ -1,6 +1,7 @@
 package com.example.dekd_learning
 
 import android.util.Log
+import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -134,11 +135,7 @@ fun TipCalculator(){
     var tipAmount by remember { mutableStateOf("") }
     var isRound by remember { mutableStateOf(false) }
 
-    val amount = billAmount.toDoubleOrNull() ?: 0.0
-    val tip = tipAmount.toDoubleOrNull() ?: 0.0
-
-    val total = if(isRound) kotlin.math.ceil(amount + (amount * tip / 100))
-        else amount + (amount * tip / 100)
+    val total = calculateTip(billAmount, tipAmount, isRound)
 
     Column(
         verticalArrangement = Arrangement.Center,
@@ -214,4 +211,13 @@ fun EditNumberField(
             .fillMaxWidth()
             .padding(bottom = 12.dp)
     )
+}
+
+@VisibleForTesting
+internal fun calculateTip(billAmt: String, tipAmt: String, isRound: Boolean) : Double{
+    val amount = billAmt.toDoubleOrNull() ?: 0.0
+    val tip = tipAmt.toDoubleOrNull() ?: 0.0
+
+    return if(isRound) kotlin.math.ceil(amount + (amount * tip / 100))
+    else amount + (amount * tip / 100)
 }
