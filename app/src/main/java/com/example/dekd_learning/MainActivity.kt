@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = colorResource(R.color.business_card_bg)
                 ) {
-                    Lemonade()
+                    TipCalculator()
                 }
             }
         }

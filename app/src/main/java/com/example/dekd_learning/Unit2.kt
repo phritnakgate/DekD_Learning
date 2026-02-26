@@ -5,24 +5,40 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Money
+import androidx.compose.material.icons.filled.Percent
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun DiceRoller(){
@@ -109,4 +125,93 @@ fun Lemonade(){
             text = stringResource(display["picDesc"] as Int)
         )
     }
+}
+
+@Composable
+fun TipCalculator(){
+
+    var billAmount by remember { mutableStateOf("") }
+    var tipAmount by remember { mutableStateOf("") }
+    var isRound by remember { mutableStateOf(false) }
+
+    val amount = billAmount.toDoubleOrNull() ?: 0.0
+    val tip = tipAmount.toDoubleOrNull() ?: 0.0
+
+    val total = if(isRound) kotlin.math.ceil(amount + (amount * tip / 100))
+        else amount + (amount * tip / 100)
+
+    Column(
+        verticalArrangement = Arrangement.Center,
+        modifier = Modifier
+            .padding(32.dp)
+            .verticalScroll(rememberScrollState())
+            .safeDrawingPadding()
+    ) {
+        Text(
+            text = stringResource(R.string.tip_calc_title),
+            modifier = Modifier.padding(bottom = 12.dp)
+        )
+        EditNumberField(
+            label = stringResource(R.string.tip_calc_hint_bill),
+            leadingIcon = Icons.Default.Money,
+            value = billAmount,
+            imeAction = ImeAction.Next,
+            onValueChange = { billAmount = it }
+        )
+        EditNumberField(
+            label = stringResource(R.string.tip_calc_hint_percent),
+            leadingIcon = Icons.Default.Percent,
+            imeAction = ImeAction.Done,
+            value = tipAmount,
+            onValueChange = { tipAmount = it }
+        )
+        Row (
+            horizontalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier.fillMaxWidth()
+        ){
+            Text(
+                text = stringResource(R.string.tip_calc_round_up),
+            )
+            Switch(
+                checked = isRound,
+                onCheckedChange = { isRound = it }
+            )
+        }
+        Text(
+            text = stringResource(R.string.tip_calc_result, String.format("%.2f", total)),
+            textAlign = TextAlign.Center,
+            fontWeight = FontWeight.Bold,
+            fontSize = 24.sp,
+            modifier = Modifier.padding(top=32.dp)
+        )
+    }
+}
+
+@Composable
+fun EditNumberField(
+    label: String,
+    leadingIcon: ImageVector,
+    value: String,
+    onValueChange: (String) -> Unit,
+    imeAction: ImeAction,
+    modifier: Modifier = Modifier
+) {
+    TextField(
+        value = value,
+        onValueChange = onValueChange,
+        label = {
+            Text(label)
+        },
+        leadingIcon = {
+            Icon(imageVector = leadingIcon, contentDescription = null)
+        },
+        singleLine = true,
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number,
+            imeAction = imeAction
+        ),
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(bottom = 12.dp)
+    )
 }

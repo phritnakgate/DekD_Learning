@@ -44,4 +44,11 @@
     <string name="lemonade_2_cd">Glass of lemonade</string>
     <string name="lemonade_3_cd">Empty glass</string>
 
+    <!--Unit2: Tip Calculator-->
+    <string name="tip_calc_title">Calculate Tip</string>
+    <string name="tip_calc_hint_bill">Bill Amount</string>
+    <string name="tip_calc_hint_percent">Tip Percentage</string>
+    <string name="tip_calc_round_up">Round Up Tip?</string>
+    <string name="tip_calc_result">Total Amount: $%s</string>
+
 </resources>
