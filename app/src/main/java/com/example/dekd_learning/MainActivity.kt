@@ -16,12 +16,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             DekD_LearningTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = colorResource(R.color.business_card_bg)
-                ) {
-                    TipCalculator()
-                }
+                AffirmationsApp()
             }
         }
     }
