@@ -15,8 +15,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            DekD_LearningTheme {
-                ClassApp()
+            DekD_LearningTheme (){
+                WoofApp()
             }
         }
     }
