@@ -16,7 +16,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             DekD_LearningTheme {
-                AffirmationsApp()
+                ClassApp()
             }
         }
     }
