@@ -1,4 +1,4 @@
-package com.example.dekd_learning
+package com.example.dekd_learning.ui
 
 import android.util.Log
 import androidx.annotation.VisibleForTesting
@@ -40,6 +40,8 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.dekd_learning.R
+import kotlin.math.ceil
 
 @Composable
 fun DiceRoller(){
@@ -219,6 +221,6 @@ internal fun calculateTip(billAmt: String, tipAmt: String, isRound: Boolean) : D
     val amount = billAmt.toDoubleOrNull() ?: 0.0
     val tip = tipAmt.toDoubleOrNull() ?: 0.0
 
-    return if(isRound) kotlin.math.ceil(amount + (amount * tip / 100))
+    return if(isRound) ceil(amount + (amount * tip / 100))
     else amount + (amount * tip / 100)
 }
