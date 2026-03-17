@@ -164,6 +164,7 @@ fun TipCalculator(){
         )
         Row (
             horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxWidth()
         ){
             Text(
