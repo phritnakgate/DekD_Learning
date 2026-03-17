@@ -9,7 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.dekd_learning.ui.WoofApp
+import com.example.dekd_learning.ui.cupcake.CupcakeApp
 import com.example.dekd_learning.ui.theme.DekD_LearningTheme
 import com.example.dekd_learning.ui.unscramble_game.UnscrambleGameScreen
 
@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                 ) {
-                    UnscrambleGameScreen()
+                    CupcakeApp()
                 }
             }
         }
@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun AppPreview(){
     DekD_LearningTheme (){
-        WoofApp()
+        CupcakeApp()
     }
 }
 
