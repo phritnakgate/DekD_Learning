@@ -6,14 +6,14 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.Composable
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.dekd_learning.ui.cupcake.CupcakeApp
+import com.example.dekd_learning.ui.sportapp.SportsApp
 import com.example.dekd_learning.ui.theme.DekD_LearningTheme
-import com.example.dekd_learning.ui.unscramble_game.UnscrambleGameScreen
 
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -22,18 +22,21 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                 ) {
-                    CupcakeApp()
+                    SportsApp(
+                        windowSize = calculateWindowSizeClass(this).widthSizeClass,
+                        onBackPressed = { finish() }
+                    )
                 }
             }
         }
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun AppPreview(){
-    DekD_LearningTheme (){
-        CupcakeApp()
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun AppPreview(){
+//    DekD_LearningTheme (){
+//        SportsApp()
+//    }
+//}
 
