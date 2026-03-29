@@ -9,6 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.ui.Modifier
+import com.example.dekd_learning.ui.marsapp.MarsPhotosApp
 import com.example.dekd_learning.ui.raceapp.RaceTrackerApp
 import com.example.dekd_learning.ui.sportapp.SportsApp
 import com.example.dekd_learning.ui.theme.DekD_LearningTheme
@@ -23,7 +24,7 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                 ) {
-                    RaceTrackerApp()
+                    MarsPhotosApp()
                 }
             }
         }
