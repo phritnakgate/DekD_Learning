@@ -71,7 +71,7 @@ import com.example.dekd_learning.R
 import com.example.dekd_learning.data.Datasource
 import com.example.dekd_learning.data.model.Sport
 import com.example.dekd_learning.ui.theme.DekD_LearningTheme
-import com.example.dekd_learning.utils.SportsContentType
+import com.example.dekd_learning.utils.enums.SportsContentType
 
 /**
  * Main composable that serves as container

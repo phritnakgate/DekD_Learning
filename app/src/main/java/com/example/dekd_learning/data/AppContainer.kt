@@ -1,5 +1,7 @@
 package com.example.dekd_learning.data
 
+import android.content.Context
+import com.example.dekd_learning.data.local.AppDatabase
 import com.example.dekd_learning.data.remote.ApiService
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -10,7 +12,7 @@ interface AppContainer {
     val repository : IRepository
 }
 
-class DefaultAppContainer : AppContainer {
+class DefaultAppContainer(context: Context) : AppContainer {
     private val BASE_URL =
         "https://android-kotlin-fun-mars-server.appspot.com"
 
@@ -29,6 +31,9 @@ class DefaultAppContainer : AppContainer {
     }
 
     override val repository: Repository by lazy {
-        Repository(retrofitService)
+        Repository(
+            apiService = retrofitService,
+            itemDao = AppDatabase.getDatabase(context.applicationContext).itemDao()
+            )
     }
 }
