@@ -2,6 +2,7 @@ package com.example.dekd_learning.data
 
 import com.example.dekd_learning.R
 import com.example.dekd_learning.data.model.Affirmation
+import com.example.dekd_learning.data.model.BlurAmount
 import com.example.dekd_learning.data.model.Dog
 import com.example.dekd_learning.data.model.Topic
 import com.example.dekd_learning.data.model.Sport
@@ -373,6 +374,22 @@ class Datasource() {
                 imageResourceId = R.drawable.ic_tennis_square,
                 sportsImageBanner = R.drawable.ic_tennis_banner,
                 sportDetails = R.string.sport_detail_text
+            )
+        )
+    }
+    object BlurAmountData {
+        val blurAmount = listOf(
+            BlurAmount(
+                blurAmountRes = R.string.blur_lv_1,
+                blurAmount = 1
+            ),
+            BlurAmount(
+                blurAmountRes = R.string.blur_lv_2,
+                blurAmount = 2
+            ),
+            BlurAmount(
+                blurAmountRes = R.string.blur_lv_3,
+                blurAmount = 3
             )
         )
     }

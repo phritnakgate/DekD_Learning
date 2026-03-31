@@ -70,7 +70,8 @@ dependencies {
     implementation("androidx.room:room-ktx:$room_version")
 
     implementation("androidx.datastore:datastore-preferences:1.2.1")
-
+    implementation("androidx.work:work-runtime-ktx:2.11.0")
+    androidTestImplementation("androidx.work:work-testing:2.11.0")
     testImplementation(libs.junit)
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
     androidTestImplementation(libs.androidx.junit)
@@ -78,6 +79,7 @@ dependencies {
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     androidTestImplementation("androidx.navigation:navigation-testing:2.9.7")
+
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 }
